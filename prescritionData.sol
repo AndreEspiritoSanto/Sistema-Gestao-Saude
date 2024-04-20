@@ -10,7 +10,8 @@ contract PrescriptionData {
     uint256 userID;
     string prescriptionDate;    
     string medicineList;
-    string posology;
+    string medicineQuantity;
+    string medicinePosology;
   }
 
   // Mapear para armazenar a informação mapeada para o ID como chave
@@ -20,8 +21,8 @@ contract PrescriptionData {
   uint256 private nextprescriptionId = 1;
 
   // Função para arquivar informação e assignar um ID
-  function addPrescription(uint256 _prescriptionId, uint256 _institutionID, uint256 _userID, string memory _prescriptionDate, string memory _medicineList, string memory _posology ) public {
-    prescriptions[_prescriptionId] = Prescription(_prescriptionId, _institutionID, _userID, _prescriptionDate, _medicineList, _posology);
+  function addPrescription(uint256 _prescriptionId, uint256 _institutionID, uint256 _userID, string memory _prescriptionDate, string memory _medicineList, string memory _medicineQuantity, string memory _medicinePosology ) public {
+    prescriptions[_prescriptionId] = Prescription(_prescriptionId, _institutionID, _userID, _prescriptionDate, _medicineList, _medicineQuantity, _medicinePosology);
   }
 
   // Função para recuperar informação pelo ID
